@@ -30,7 +30,7 @@ public class PageTest {
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = mapper.selectAll();
-        // 分页信息
+        // 分页信息，PageInfo是比Page信息更丰富的一个类;我们可以直接返回Page,也可以使用PageInfo包装一下返回PageInfo
         PageInfo<User> pageInfo = new PageInfo<>(users);
 
         users.forEach(System.out::println);
