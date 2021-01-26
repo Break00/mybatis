@@ -20,13 +20,6 @@
         <setting name="cacheEnabled" value="true"/>
     </settings>
 
-    <typeAliases>
-        <!--别名，默认为类名小写user-->
-        <typeAlias type="com.jason.lee.entity.User" alias="User"/>
-        <!--批量取别名，默认类名小写 可以使用@Alias指定别名-->
-        <package name="com.jason.lee.entity"/>
-    </typeAliases>
-
     <typeHandlers>
         <typeHandler handler="com.jason.lee.typehandler.MyTypeHandler" javaType="com.jason.lee.entity.UserStatus"/>
     </typeHandlers>
@@ -70,5 +63,8 @@
     <mapper resource="mbg-mapper/UserMapper.xml"/>
     <!--注册sql映射接口-->
     <mapper class="com.jason.lee.mapper.DepartMapper"/>
+    <mapper resource="mapper/discriminator/StudentMapper.xml"/>
+    <mapper resource="mapper/discriminator/FemaleHealthMapper.xml"/>
+    <mapper resource="mapper/discriminator/MaleHealthMapper.xml"/>
 </mappers>
 </configuration>
