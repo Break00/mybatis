@@ -17,7 +17,7 @@
         使用前提：
             1、显式开启缓存配置，默认开启  <setting name="cacheEnabled" value="true"/>
             2、在mapper.xml中开启  <cache eviction="LRU" flushInterval="6000" readOnly="true" size="200"></cache>
-            3、POJO需要实现序列化接口
+            3、POJO需要实现序列化接口(使用外部存储介质时—非内存)
 
         和缓存相关的设置/属性：
             1、全局setting中 cacheEnabled=true/false （false —— 只关闭二级缓存）

@@ -24,18 +24,20 @@ public class CacheTest {
         UserMapper mapper1 = sqlSession1.getMapper(UserMapper.class);
         UserMapper mapper2 = sqlSession2.getMapper(UserMapper.class);
 
-        User user1 = mapper1.getUserById(4);
-        sqlSession1.close();
+        // sqlSession级别，只查询一次
+        System.out.println(mapper1.getUserById(4));
+        // 未commit时命中一级缓存
+        sqlSession1.commit();
+        System.out.println(mapper1.getUserById(4));
+//        sqlSession1.close();
 
         // 第二次查询是从二级缓存中拿到的数据
-        User user2 = mapper2.getUserById(4);
+        System.out.println(mapper2.getUserById(4));
         sqlSession2.close();
 
         // 手动清除一级缓存
         // sqlSession.clearCache();
         //User user1 = mapper1.getUserById(4);
-
-        System.out.println(user1==user2);
 
     }
 }
